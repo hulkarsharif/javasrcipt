@@ -28,7 +28,7 @@ console.log(timestamp);
 //Use an if-else if-else structure to print a greeting based on the hour:
 if (hours < 12) {
     console.log("Good morning!");
-} else if (hours < 17) {
+} else if (hours <= 12 && hours <= 17) {
     console.log("Good afternoon!");
 } else {
     console.log("Good evening!");
