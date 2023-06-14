@@ -46,7 +46,7 @@
 // console.log("Area of circle:", area);
 
 //part 5.2//
-var length = 10;
-var width = 20;
-var Perimeter = 2 * (length + width);
-console.log(Perimeter);
+// var length = 10;
+// var width = 20;
+// var Perimeter = 2 * (length + width);
+// console.log(Perimeter);
