@@ -1,43 +1,72 @@
 //task1
-var arr1 = [1, 2, 3];
-var arr2 = [4, 5, 6];
-var arr3 = arr1.concat(arr2);
-console.log(arr3);
+function combineArrays(arr1, arr2) {
+    return arr1.concat(arr2);
+}
+console.log(combineArrays([1, 2, 3], [4, 5, 6]));
 
 //task2
-var arr = [1, 2, 3];
-arr.reverse(arr);
-console.log(arr);
+function reverseOrder(arr) {
+    var result = arr.reverse();
+    return result;
+}
+console.log(reverseOrder([1, 2, 3]));
 
 //task3
-var arr = [1, 2, 3];
-console.log(arr.includes(2));
+function checkValue(arr, val) {
+    if (arr.includes(val)) {
+        return true;
+    } else {
+        return false;
+    }
+}
+console.log(checkValue([2, 3, 4, 5], 8));
 
 //task4
-var arr = [1, 2, 3];
-console.log(Array.isArray(arr));
+function isArray(arr) {
+    if (Array.isArray(arr)) {
+        return true;
+    } else {
+        return false;
+    }
+}
+console.log(isArray(15, 25, 35, 45));
 
 //task5
-var arr = [1, 2, 3, 4, 5];
-var numbers = arr.slice(1, 4);
-console.log(numbers);
+function arraySlice(arr, num1, num2) {
+    return arr.slice(num1, num2);
+    return result;
+}
+console.log(arraySlice([1, 2, 3, 4], 1, 4));
 
 //task6
-var nums = [1, 2, 3];
-var lastElement = nums.pop(nums);
-console.log(nums);
+function removeLast(arr) {
+    var result = arr.pop();
+    var result = arr;
+    return result;
+}
+console.log(removeLast(["January", "February", "March"]));
 
 //task7
-var arr = [1, 2, 3];
-var firstElement = arr.shift(arr);
-console.log(arr);
+function removeFirst(arr) {
+    var result = arr.shift();
+    var result = arr;
+    return result;
+}
+console.log(removeFirst(["January", "February", "March"]));
 
 //task8
-var arr = [1, 2, 3];
-var newLength = arr.unshift(0);
-console.log(arr);
+function addAtBeginning(arr, num) {
+    var result = arr.unshift(num);
+    var result = arr;
+    return result;
+}
+
+console.log(addAtBeginning([2, 3, 4], 1));
 
 //task 9
-var arr = [1, 2, 3];
-var lastElement = arr.push(4);
-console.log(arr);
+function addAtEnd(arr, val) {
+    var result = arr.push(val);
+    var result = arr;
+    return result;
+}
+console.log(addAtEnd([1, 2, 3, 4], 5));
