@@ -1,7 +1,19 @@
 // task 1
-function countBumbers(start, end) {
+function countNumbers(start, end) {
     return end - start + 1;
 }
+
+//while
+function countNumbers(start, end) {
+    var counter = 0;
+    var i = start;
+    while (i <= end) {
+        counter++;
+        i++;
+    }
+    return counter;
+}
+console.log(countNumbers(1, 15));
 
 //task 2
 function num3And4(start, end) {
@@ -10,6 +22,18 @@ function num3And4(start, end) {
         if (i % 7 === 0) {
             counter = counter + 1;
         }
+    }
+    return counter;
+}
+// while
+function num3And4(start, end) {
+    var counter = 0;
+    var i = start;
+    while (i <= end) {
+        if (i % 7 === 0) {
+            counter++;
+        }
+        i++;
     }
     return counter;
 }
@@ -22,6 +46,18 @@ function divisible3And5(start, end) {
         if (i % 3 === 0 && i % 5 === 0) {
             counter = counter + 1;
         }
+    }
+    return counter;
+}
+//while
+function divisible3And5(start, end) {
+    var counter = 0;
+    var i = start;
+    while (i <= end) {
+        if (i % 3 === 0 && i % 5 === 0) {
+            counter++;
+        }
+        i++;
     }
     return counter;
 }
@@ -38,6 +74,19 @@ function squareCount(start, end) {
     }
     return counter;
 }
+//while
+function squareCount(start, end) {
+    var counter = 0;
+    i = start;
+    while (i <= end) {
+        var square = i * i;
+        if (square >= start && square <= end) {
+            counter = counter + 1;
+        }
+        i++;
+    }
+    return counter;
+}
 console.log(squareCount(1, 10));
 
 // task 5
@@ -46,6 +95,18 @@ function countOfNumbers(start, end) {
     for (var i = start; i <= end; i++) {
         if ((i % 3 === 0 && i % 5 !== 0) || (i % 3 !== 0 && i % 5 === 0));
         counter = counter + 1;
+    }
+    return counter;
+}
+//while
+function countOfNumbers(start, end) {
+    var counter = 0;
+    i = start;
+    while (i <= end) {
+        if ((i % 3 === 0 && i % 5 !== 0) || (i % 3 !== 0 && i % 5 === 0)) {
+            counter = counter + 1;
+        }
+        i++;
     }
     return counter;
 }
