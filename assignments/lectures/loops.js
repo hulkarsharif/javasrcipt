@@ -61,3 +61,76 @@ function arrySeven(start, end) {
     }
     return arr;
 }
+
+// var arr1 = [1, 2, 3];
+// var arr2 = [4, 5, 6];
+// var arr3 = arr1.concat(arr2);
+// console.log(arr3);
+// console.log(arr1);
+
+// var arr4 = ["Human"];
+// var arr5 = ["Being"];
+// var arr6 = arr4.concat(arr5);
+// console.log(arr6);
+
+// var arr = ["Human Being"];
+// console.log(arr.includes("Human Being"));
+// console.log(arr.includes(5));
+// var arr = [1, 2, 3];
+// var notArr = "How do you do?";
+// console.log(Array.isArray(arr));
+// console.log(Array.isArray(notArr));
+
+// var arr = ["John", "Bob", "James"];
+// arr.reverse();
+// console.log(arr);
+
+// var animals = ["ship", "panda", "gorilla", "cow"];
+// var domestics = animals.slice(0, 5);
+// console.log(domestics);
+
+// var animals = ["ship", "panda", "gorilla", "cow"];
+// var domesticsAnim = animals.slice(1);
+// console.log(domesticsAnim);
+
+// function combineArrays(arr1, arr2) {
+//     return arr1.concat(arr2);
+// }
+// console.log(combineArrays([1, 2, 3], [4, 5, 6]));
+
+// function reverseOrder(arr) {
+//     var result = arr.reverse();
+//     return result;
+// }
+// console.log(reverseOrder([1, 2, 3]));
+
+function checkValue(arr, val) {
+    if (arr.includes(val)) {
+        return true;
+    } else {
+        return false;
+    }
+}
+console.log(checkValue([2, 3, 4, 5], 8));
+
+function isArray(arr) {
+    if (Array.isArray(arr)) {
+        return true;
+    } else {
+        return false;
+    }
+}
+console.log(isArray(15, 25, 35, 45));
+
+var str = "Hello, World!";
+for (var i = 0; i < str.length; i++) {
+    console.log(str[i]);
+}
+var str = "Hello, World!";
+var count = 0;
+for (var i = 0; i < str.length; i++) {
+    if (str[i] === "o") {
+        count++;
+    }
+}
+console.log(count);

@@ -69,3 +69,28 @@ var quote = part1.concat(
     author
 );
 console.log(quote);
+
+var quote2 = `${part1} ${part2} ${part3} ${part4} ${part5} ${author}`;
+console.log(quote2);
+
+var quote3 =
+    part1 +
+    " " +
+    part2 +
+    " " +
+    part3 +
+    " " +
+    part4 +
+    " " +
+    part5 +
+    " " +
+    author;
+console.log(quote3);
+
+var quote4 = part1;
+quote4 += " " + part2;
+quote4 += " " + part3;
+quote4 += " " + part4;
+quote4 += " " + part5;
+quote += " " + author;
+console.log(quote4);
