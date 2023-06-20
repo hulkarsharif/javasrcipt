@@ -177,17 +177,22 @@ console.log(sumDigits(12345));
 // preserveLetters('Hello,123');
 // Output: 'Hello'
 // Explanation: The function removes all characters in 'Hello,123' that are not letters, resulting in the new string 'Hello'.
-
-function preserveLetters1(str) {
+function preserveLetters(str) {
     var result = "";
+
     for (var i = 0; i < str.length; i++) {
-        var char = str[i];
-        var englishLtters = "abcdefghijklmnopqrstuvwxyz";
-        if (englishLtters.includes(char.toLowerCase()));
-        {
+        const char = str[i];
+
+        if (isLetter(char)) {
             result += char;
         }
-        return result;
-    } //ohirgacha etmagan
+    }
+
+    return result;
 }
-console.log(preserveLetters1("Hello,123"));
+
+function isLetter(char) {
+    return /[a-zA-Z]/.test(char);
+}
+
+console.log(preserveLetters("Hello,123")); // Output: 'Hello'
