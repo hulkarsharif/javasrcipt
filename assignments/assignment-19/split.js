@@ -31,7 +31,8 @@ console.log(joinWithDash(["quick", "brown", "fox"]));
 //Example Output: ["Hello", "World", "from", "JavaScript"]
 
 function splitSentenceIntoWords(sentence) {
-    return sentence.split(" ");
+    let arr = sentence.split("");
+    return arr;
 }
 console.log(splitSentenceIntoWords("The quick brown fox"));
 console.log(splitSentenceIntoWords("Hello World from JavaScript"));
@@ -60,9 +61,9 @@ console.log(createCamelCase("Hello world"));
 //Example Output: "back middle front"
 
 function splitAndReverse(str, separator) {
-    var arr = str.split(separator);
-    var reversedArr = arr.reverse();
-    var reversedStr = reversedArr.join(separator);
+    let arr = str.split(separator);
+    let reversedArr = arr.reverse();
+    let reversedStr = reversedArr.join(separator);
     return reversedStr;
 }
 console.log(splitAndReverse("one-two-three", "-"));
@@ -92,7 +93,7 @@ function splitByMultipleCharacters(str, characters) {
         var newArr = [];
         for (var j = 0; j < result.length; j++) {
             var splitArr = result[j].split(characters[i]);
-            newArr = newArr.cocat(splitArr);
+            newArr = newArr.concat(splitArr);
         }
         result = newArr;
     }
@@ -108,7 +109,8 @@ console.log(splitByMultipleCharacters("red,green,blue", [",", "e"]));
 //Example Output: 4
 
 function countWordsInSentence(sentence) {
-    return sentence.split();
+    let words = sentence.split(" ");
+    return words.length;
 }
 console.log(countWordsInSentence("The quick brown fox"));
 
@@ -119,10 +121,8 @@ console.log(countWordsInSentence("The quick brown fox"));
 //Example Output: "Wonderland, Alice"
 
 function swapFirstAndLastName(fullName) {
-    let names = fullName.split("");
-    const firstName = names[0]; // Get the first name
-    const lastName = names[1];
-    return fullName.reverse(",");
+    let names = fullName.split(" ");
+    return names.reverse("");
 }
 console.log(swapFirstAndLastName("John Doe"));
 
@@ -131,3 +131,15 @@ console.log(swapFirstAndLastName("John Doe"));
 //Example Output: "#HelloWorld"
 //Example Input: "OpenAI is awesome"
 //Example Output: "#OpenAIIIsAwesome"
+function createHashtag(str) {
+    let arr = str.split(" ");
+    let arrWithHash = ["#"];
+    for (var i = 0; i < arr.length; i++) {
+        var word = arr[i];
+        var capitalizedWords = word[0].toUpperCase() + word.slice(1);
+        arrWithHash.push(capitalizedWords);
+    }
+
+    return arrWithHash.join("");
+}
+console.log(createHashtag("hello world"));
