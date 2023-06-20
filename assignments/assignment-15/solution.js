@@ -1,10 +1,10 @@
 // task 1
-function countNumbers(start, end) {
+function countNums(start, end) {
     return end - start + 1;
 }
 
 //while
-function countNumbers(start, end) {
+function countNums(start, end) {
     var counter = 0;
     var i = start;
     while (i <= end) {
@@ -13,7 +13,7 @@ function countNumbers(start, end) {
     }
     return counter;
 }
-console.log(countNumbers(1, 15));
+console.log(countNums(11, 15));
 
 //task 2
 function num3And4(start, end) {
