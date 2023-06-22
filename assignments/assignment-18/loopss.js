@@ -13,25 +13,40 @@ function stringIndexMultiplier(arr) {
     }
     return sum;
 }
-console.log(stringIndexMultiplier(["Hello", "world", "!"]));
+
+console.log(stringIndexMultiplier(["Hello", "world", "!"])); //Output 7
 
 //2. Divisibility Filter.
 //Create a function named divisibilityFilter that accepts an array of numbers as an argument. The function should return a new array that only includes the numbers from the original array that are divisible by 3 or 5, but not both.
 
-function divisibilityFilter(array) {
+// function divisibilityFilter(array) {
+//     var result = [];
+//     for (var i = 0; i < array.length; i++) {
+//         var num = array[i];
+//         if (
+//             (num % 3 === 0 && num % 5 !== 0) ||
+//             (num % 3 !== 0 && num % 5 === 0)
+//         ) {
+//             newArray.push(num);
+//         }
+//     }
+//     return newArray;
+// }
+
+function divisibilityFilter(arr) {
     var result = [];
-    for (var i = 0; i < array.length; i++) {
-        var num = array[i];
-        if (
-            (num % 3 === 0 && num % 5 !== 0) ||
-            (num % 3 !== 0 && num % 5 === 0)
-        ) {
-            newArray.push(num);
+    for (var i = 0; i < arr.length; i++) {
+        var divisibleBy3 = arr[i] % 3 === 0;
+        var divisibleBy5 = arr[i] % 5 === 0;
+
+        if ((divisibleBy3 || divisibleBy5) && !(divisibleBy3 && divisibleBy5)) {
+            result.push(arr[i]);
         }
     }
-    return newArray;
+    return result;
 }
-console.log(divisibilityFilter([3, 5, 15, 18, 20, 30]));
+
+console.log(divisibilityFilter([3, 5, 15, 18, 20, 30])); //output [3, 5, 18, 20].
 
 //3. Single Digit Sum.
 //Create a function named singleDigitSum that accepts an array of numbers as an argument. This function should return the sum of all numbers in the array that have only one digit. Note that the numbers can be both positive and negative.
@@ -49,6 +64,17 @@ function singleDigitSum(arr) {
         }
     }
     return totalSum;
+}
+//other way
+function singleDigitSum(arr) {
+    var sum = 0;
+    for (var i = 0; i < arr.length; i++) {
+        var absValue = Math.abs(arr[i]);
+        if (absValue < 10) {
+            sum = sum + arr[i];
+        }
+    }
+    return sum;
 }
 console.log(singleDigitSum([-10, 1, -2, 30, 6, -7]));
 
@@ -70,6 +96,7 @@ function binaryCounter(arr) {
     // result.push(numberOfZeroes, numberOfOnes);
     return result;
 }
+
 console.log(binaryCounter([0, 1, 0, 1, 1, 0, 0, 1]));
 
 // 5. Unique String Filter
@@ -90,6 +117,19 @@ function uniqueStringFilter(arr) {
         }
     }
     return result;
+}
+//another way
+
+function uniqueStringFilter(arr) {
+    var uniqCaseString = [];
+    var lowerCaseString = [];
+    for (var i = 0; i < arr.length; i++) {
+        if (!lowerCaseString.includes(lowerCaseString)) {
+            uniqCaseString.push(arr[i]);
+            lowerCaseString.push(lowerCaseString);
+        }
+    }
+    return uniqCaseString;
 }
 
 console.log(
@@ -122,6 +162,16 @@ function oddNumberSum(arr) {
     }
     return sum;
 }
+
+function oddNumberSum(arr) {
+    var sum = 0;
+    for (var i = 0; i < arr.length; i++) {
+        if (arr[i] % 2 !== 0) {
+            sum = sum + arr[i];
+        }
+    }
+    return sum;
+}
 console.log(oddNumberSum([1, 2, 3, 4, 5, 6, 7, 8, 9]));
 console.log(oddNumberSum([2]));
 
@@ -141,17 +191,18 @@ function reverseString(arr) {
     }
     return reversedArr;
 }
+//another way
+
+function reverseString(arr) {
+    var result = [];
+    for (var i = arr.length - 1; i >= 0; i--) {
+        result.push(arr[i]);
+    }
+    return result;
+}
 console.log(reverseString(["H", "e", "l", "l", "o"]));
 
-function reverseString2(arr) {
-    var reversedArr = [];
-    for (var i = 0; i < arr.length; i++) {
-        reversedArr.unshift(arr[i]);
-    }
-    return reversedArr;
-}
-console.log(reverseString2(["a"]));
-console.log(reverseString2([]));
+console.log(reverseString([]));
 
 // 8. Factorial Calculator
 
@@ -160,32 +211,51 @@ console.log(reverseString2([]));
 // Example: calculateFactorial(5); should return 120, because 5*4*3*2*1 = 120.
 
 // Edge Case: calculateFactorial(0); should return 1 because the factorial of 0 is 1 by definition.
+// function calculateFactorial(num) {
+//     factorial = 0;
+//     for (var i = 0; i < +num; i++) {
+//         factorial = factorial * i;
+//     }
+//     if (num === 0) {
+//         return 1;
+//     }
+//     return factorial;
+// }
+
+//another way
+
 function calculateFactorial(num) {
-    factorial = 0;
-    for (var i = 0; i < +num; i++) {
+    var factorial = 1;
+    for (var i = num; i > 1; i--) {
         factorial = factorial * i;
     }
-    if (num === 0) {
-        return 1;
-    }
+
     return factorial;
 }
 console.log(calculateFactorial(5));
 console.log(calculateFactorial(0));
-// Task: Create a function named arrayElementMultiplier that accepts an array of numbers. The function should return a new array where each element is twice the value of the corresponding element in the original array.
+//9. Task: Create a function named arrayElementMultiplier that accepts an array of numbers. The function should return a new array where each element is twice the value of the corresponding element in the original array.
 
 // Example: arrayElementMultiplier([1, 2, 3, 4, 5]); should return [2, 4, 6, 8, 10].
 
 // Edge Case: arrayElementMultiplier([]); should return [] because the input array is empty.
 
-function arrayElementMultiplier(arr) {
-    // var newArr = [];
+// function arrayElementMultiplier(arr) {
+//     // var newArr = [];
 
+//     for (var i = 0; i < arr.length; i++) {
+//         arr[i] = arr[i] * 2;
+//     }
+//     return arr;
+// }
+function arrayElementMultiplier(arr) {
+    var result = [];
     for (var i = 0; i < arr.length; i++) {
-        arr[i] = arr[i] * 2;
+        result.push(arr[i]) * 2;
     }
-    return arr;
+    return result;
 }
+
 console.log(arrayElementMultiplier([1, 2, 3, 4, 5]));
 console.log(arrayElementMultiplier([]));
 
@@ -201,11 +271,20 @@ console.log(arrayElementMultiplier([]));
 
 // Edge Case 2: evenIndexSum([100]); should return 100, because the array only has one element, which is located at index 0 (an even index).
 
+// function evenIndexSum(arr) {
+//     var sum = 0;
+//     for (var i = 0; i < arr.length; i++) {
+//         sum = sum + arr[i];
+//     }
+//     return sum;
+// }
+
 function evenIndexSum(arr) {
     var sum = 0;
-    for (var i = 0; i < arr.length; i++) {
-        sum = sum + arr[i];
+    for (var i = 0; i < arr.length; i += 2) {
+        sum += arr[i];
     }
+
     return sum;
 }
 console.log(evenIndexSum([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]));

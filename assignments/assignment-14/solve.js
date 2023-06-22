@@ -4,6 +4,7 @@ function printNumbers() {
         console.log(num);
     }
 }
+
 // printNumbers();
 
 //task2
@@ -14,6 +15,7 @@ function printDivisiblyBy7() {
         }
     }
 }
+
 // printDivisiblyBy7();
 
 //task 3
@@ -24,6 +26,7 @@ function printDivisiblyBy3And5() {
         }
     }
 }
+
 // printDivisiblyBy3And5();
 
 //task4
@@ -33,6 +36,7 @@ function calculateNumbers() {
         console.log(square);
     }
 }
+
 // calculateNumbers();
 
 //task 5
@@ -46,4 +50,5 @@ function divisiblyBy3Or5() {
         }
     }
 }
-// divisiblyBy3Or5();
+
+divisiblyBy3Or5();
