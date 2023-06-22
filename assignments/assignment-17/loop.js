@@ -4,8 +4,8 @@
 // Explanation: The character 'o' appears twice in the string 'hello world'.
 function findCharFrequency(str, char) {
     var counter = 0;
-    for (var i = 0; i < str.length; i++) {
-        if (char.includes(str[i])) {
+    for (var i = 0; i <= str.length; i++) {
+        if (str[i] === char) {
             counter++;
         }
     }
@@ -18,11 +18,22 @@ console.log(findCharFrequency("Hello world", "e"));
 // Output: 5
 // Explanation: The string 'beautiful' has 5 vowels - 'e', 'a', 'u', 'i', 'u'
 
+// function vowelCounter(str) {
+//     var counter = 0;
+//     var vowels = "aoeiu";
+//     for (var i = 0; i < str.length; i++) {
+//         if (vowels.includes(str[i])) {
+//             counter++;
+//         }
+//     }
+//     return counter;
+// }
+//version2
 function vowelCounter(str) {
     var counter = 0;
-    var vowels = "aoeiu";
+    var vowels = "aieou";
     for (var i = 0; i < str.length; i++) {
-        if (vowels.includes(str[i])) {
+        if (vowels.includes(str[i].toLowerCase())) {
             counter++;
         }
     }
@@ -42,14 +53,15 @@ console.log(vowelCounter("responsible")); // Output 4
 function isAlphaNumeric(str) {
     var englishLettersAndDigits = "abcdefghijklmnopqrstuvwxyz0123456789";
     for (var i = 0; i < str.length; i++) {
-        if (englishLettersAndDigits.includes(str[i])) {
+        if (!englishLettersAndDigits.includes(str[i].toLowerCase())) {
             return false;
         }
     }
     return true;
 }
 
-console.log(isAlphaNumeric("welcome72328937289")); //output false
+console.log(isAlphaNumeric("How do you do")); //output false
+console.log(isAlphaNumeric("hi&^%$#"));
 
 //4. Write a function isAllVowels that verifies if a string consists only of vowel characters.
 
@@ -69,6 +81,7 @@ function isAllVowels(str) {
     }
     return true;
 }
+
 console.log(isAllVowels("aeiou")); //true
 console.log(isAllVowels("aeiouuupyy")); //false
 
@@ -91,24 +104,22 @@ function capitalizeVowels(str) {
     }
     return result;
 }
+
 console.log(capitalizeVowels("hello"));
 
 // part 6
-
 // Build a function sliceFromFirstVowel that returns a substring starting from the first vowel to the end of the original string.
-
 // sliceFromFirstVowel('javascript');
 // Output: 'avascript'
 // Explanation: The function slices the string 'javascript' starting from the first vowel 'a' to its end, resulting in the new string 'avascript'.
+
 function sliceFromFirstVowel(str) {
-    var vowels = "aoeiu";
+    var vowels = ["a", "e", "i", "o", "u"];
     for (var i = 0; i < str.length; i++) {
-        var char = str[i];
-        if (vowels.includes(char)) {
+        if (vowels.includes(str[i].toLowerCase())) {
             return str.slice(i);
         }
     }
-    return str;
 }
 console.log(sliceFromFirstVowel("javascript"));
 
@@ -120,19 +131,30 @@ console.log(sliceFromFirstVowel("javascript"));
 // Output: true
 // Explanation: The string 'javascript' contains 7 consonants and 3 vowels. Since the number of consonants is greater than the number of vowels, the output is true.
 
+// function areConsonantsMore(str) {
+//     var counterVowels = 0;
+//     var counterConsonants = 0;
+//     var vowels = "aoeiu";
+//     var consonants = "bgdrwtyxwyz";
+//     for (var i = 0; i < str.length; i++) {
+//         if (vowels.includes(str[i])) {
+//             counterVowels++;
+//         } else {
+//             counterConsonants++;
+//         }
+//     }
+//     return counterConsonants > counterVowels;
+// }
+
 function areConsonantsMore(str) {
-    var counterVowels = 0;
-    var counterConsonants = 0;
-    var vowels = "aoeiu";
-    var consonants = "bgdrwtyxwyz";
+    var vowels = "aoiue";
+    var consonantsCount = 0;
     for (var i = 0; i < str.length; i++) {
-        if (vowels.includes(str[i])) {
-            counterVowels++;
-        } else {
-            counterConsonants++;
+        if (!vowels.includes(str[i].toLowerCase)) {
+            consonantsCount++;
         }
     }
-    return counterConsonants > counterVowels;
+    return consonantsCount > vowelCounter(str);
 }
 console.log(areConsonantsMore("javascript")); //true
 //8. Implement a function doubleVowels that doubles all the vowels in a given string.
@@ -145,13 +167,25 @@ function doubleVowels(string) {
     var vowels = "aoeiu";
     for (var i = 0; i < string.length; i++) {
         if (vowels.includes(string[i])) {
-            result = result + string[i] + string[i];
+            result = result + string[i].repeat(2);
         } else {
             result = result + string[i];
         }
     }
     return result;
 }
+
+// function doubleVowels(str) {
+//     var vowels = ["a", "e", "i", "o", "u"];
+//     var result = "";
+//     for (var i = 0; i < str.length; i++) {
+//         if (vowels.includes(str[i].toLowerCase())) {
+//             result = result + str[i] + str[i];
+//         } else {
+//             result = result + str[i];
+//         }
+//     }
+// }
 
 console.log(doubleVowels("hello")); // output: "heelloo"
 
@@ -169,6 +203,7 @@ function sumDigits(num) {
     }
     return sum;
 }
+
 console.log(sumDigits(12345));
 
 // part 10
@@ -179,20 +214,14 @@ console.log(sumDigits(12345));
 // Explanation: The function removes all characters in 'Hello,123' that are not letters, resulting in the new string 'Hello'.
 function preserveLetters(str) {
     var result = "";
-
     for (var i = 0; i < str.length; i++) {
-        const char = str[i];
-
-        if (isLetter(char)) {
+        var englishLetters = "abcdefghijklmnopqrstuvwxyz";
+        var char = str[i];
+        if (englishLetters.includes(char.toLowerCase())) {
             result += char;
         }
     }
-
     return result;
-}
-
-function isLetter(char) {
-    return /[a-zA-Z]/.test(char);
 }
 
 console.log(preserveLetters("Hello,123")); // Output: 'Hello'

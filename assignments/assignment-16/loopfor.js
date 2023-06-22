@@ -1,10 +1,10 @@
 // task 1
 function returnArray(start, end) {
-    var arr = [];
+    var result = [];
     for (var i = start; i <= end; i++) {
-        arr.push(i);
+        result.arr.push(i);
     }
-    return arr;
+    return result;
 }
 //while loop
 function returnArray(start, end) {
@@ -16,6 +16,7 @@ function returnArray(start, end) {
     }
     return arr;
 }
+
 console.log(returnArray(11, 15));
 
 //task2
@@ -64,6 +65,7 @@ function divisibleBy3And5(start, end) {
     }
     return arr;
 }
+
 console.log(divisibleBy3And5(1, 31));
 
 //task 4
@@ -90,6 +92,7 @@ function rangeStartEnd(start, end) {
     }
     return arr;
 }
+
 console.log(rangeStartEnd(1, 10));
 
 //task 5

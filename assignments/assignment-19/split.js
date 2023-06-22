@@ -3,11 +3,9 @@
 //Example Output: ["apple", "banana", "grape"]
 //Example Input: "red,green,blue,yellow"
 //Example Output: ["red", "green", "blue", "yellow"]
-
 function splitByComma(str) {
-    return str.split(" ");
+    return str.split(",");
 }
-
 console.log(splitByComma("apple, banana, grape"));
 console.log(splitByComma("red, green, blue, yellow"));
 
@@ -18,8 +16,7 @@ console.log(splitByComma("red, green, blue, yellow"));
 //Example Output: "quick-brown-fox"
 
 function joinWithDash(arr) {
-    var result = arr.join("-");
-    return result;
+    return arr.join("-");
 }
 console.log(joinWithDash(["sun", "moon", "stars"]));
 console.log(joinWithDash(["quick", "brown", "fox"]));
@@ -31,9 +28,9 @@ console.log(joinWithDash(["quick", "brown", "fox"]));
 //Example Output: ["Hello", "World", "from", "JavaScript"]
 
 function splitSentenceIntoWords(sentence) {
-    let arr = sentence.split("");
-    return arr;
+    return sentence.split(" ");
 }
+
 console.log(splitSentenceIntoWords("The quick brown fox"));
 console.log(splitSentenceIntoWords("Hello World from JavaScript"));
 
@@ -42,16 +39,18 @@ console.log(splitSentenceIntoWords("Hello World from JavaScript"));
 //Example Output: "helloWorld"
 //Example Input: "first name"
 //Example Output: "firstName"
-
 function createCamelCase(str) {
     var words = str.split(" ");
-    var camelCase = words[0].toLowerCase();
+    words[0] = words[0].toLowerCase();
+
     for (var i = 1; i < words.length; i++) {
-        var capitalizedWord = words[1].toUpperCase(0, 7);
-        camelCase += capitalizedWord;
+        var word = words[i];
+
+        words[i] = word[0].toUpperCase() + word.slice(1).toLowerCase();
     }
-    return camelCase;
+    return words.join("");
 }
+
 console.log(createCamelCase("Hello world"));
 
 //5. Create a function splitAndReverse(str, separator) that takes a string str and a separator as arguments. The function should split the string using the separator, reverse the obtained array and then join it back into a string using the separator.
@@ -61,10 +60,7 @@ console.log(createCamelCase("Hello world"));
 //Example Output: "back middle front"
 
 function splitAndReverse(str, separator) {
-    let arr = str.split(separator);
-    let reversedArr = arr.reverse();
-    let reversedStr = reversedArr.join(separator);
-    return reversedStr;
+    return str.split(separator).reverse().join(separator);
 }
 console.log(splitAndReverse("one-two-three", "-"));
 
@@ -75,9 +71,7 @@ console.log(splitAndReverse("one-two-three", "-"));
 //Example Output: "OpenAI_GPT-4_rocks"
 
 function replaceSpacesWithUnderscore(str) {
-    var arr = str.split(" ");
-    let withUnderscore = arr.join("_");
-    return withUnderscore;
+    return str.split(" ").join("_");
 }
 console.log(replaceSpacesWithUnderscore("Hello world"));
 
@@ -88,17 +82,14 @@ console.log(replaceSpacesWithUnderscore("Hello world"));
 //Example Output: ["r", "d", "gr", "", "n", "blu", ""]
 
 function splitByMultipleCharacters(str, characters) {
-    var result = [str];
-    for (var i = 0; 0 < characters.length; i++) {
-        var newArr = [];
-        for (var j = 0; j < result.length; j++) {
-            var splitArr = result[j].split(characters[i]);
-            newArr = newArr.concat(splitArr);
-        }
-        result = newArr;
+    for (var i = 0; i < characters.length; i++) {
+        var char = characters[i];
+        str = str.split(char).join("&");
     }
-    return result;
+
+    return str.split("&");
 }
+
 console.log(splitByMultipleCharacters("apple-orange-banana", ["-", "a"]));
 console.log(splitByMultipleCharacters("red,green,blue", [",", "e"]));
 
@@ -107,12 +98,11 @@ console.log(splitByMultipleCharacters("red,green,blue", [",", "e"]));
 //Example Output: 4
 //Example Input: "Hello World from JavaScript"
 //Example Output: 4
-
-function countWordsInSentence(sentence) {
-    let words = sentence.split(" ");
-    return words.length;
+function splitByMultipleCharacters(sentence) {
+    return sentence.split(" ").length;
 }
-console.log(countWordsInSentence("The quick brown fox"));
+
+console.log(splitByMultipleCharacters("The quick brown fox"));
 
 //9. Create a function swapFirstAndLastName(fullName) that takes a string fullName which has first name and last name separated by a space. The function should return a string where the last name comes before the first name, separated by a comma.
 //Example Input: "John Doe"
@@ -121,9 +111,17 @@ console.log(countWordsInSentence("The quick brown fox"));
 //Example Output: "Wonderland, Alice"
 
 function swapFirstAndLastName(fullName) {
-    let names = fullName.split(" ");
-    return names.reverse("");
+    var parts = fullName.split(" ");
+    var temp = parts[0];
+    parts[0] = parts[1];
+    parts[1] = temp;
+    return parts.join(",");
 }
+
+// function swapFirstAndLastName(fullName) {
+//     let names = fullName.split(" ");
+//     return names.reverse("");
+// }
 console.log(swapFirstAndLastName("John Doe"));
 
 //10. Create a function createHashtag(str) that takes a string str as an argument and returns a hashtag version of it. Words should be joined with no spaces and every word should start with a capital letter.
@@ -132,14 +130,12 @@ console.log(swapFirstAndLastName("John Doe"));
 //Example Input: "OpenAI is awesome"
 //Example Output: "#OpenAIIIsAwesome"
 function createHashtag(str) {
-    let arr = str.split(" ");
-    let arrWithHash = ["#"];
-    for (var i = 0; i < arr.length; i++) {
-        var word = arr[i];
-        var capitalizedWords = word[0].toUpperCase() + word.slice(1);
-        arrWithHash.push(capitalizedWords);
+    var words = str.split(" ");
+    for (var i = 0; i < words.length; i++) {
+        words[i] = words[i][0].toUpperCase() + words[i].slice(1);
     }
 
-    return arrWithHash.join("");
+    return `#${words.join("")}`;
 }
 console.log(createHashtag("hello world"));
+console.log(createHashtag("OpenAI is awesome"));
