@@ -6,10 +6,6 @@ let movie = {
     rating: "5"
 };
 
-movie.boxOffice = "1 mln$";
-console.log(movie.boxOffice);
-console.log(movie["boxOffice"]);
-
 // task2
 console.log(movie.title);
 console.log(movie["title"]);
@@ -31,6 +27,9 @@ movie.rating = "4";
 console.log(movie.rating);
 console.log(movie["rating"]);
 
+movie.boxOffice = "10000$";
+console.log(movie.boxOffice);
+console.log(movie["boxOffice"]);
 // task 5
 delete movie.boxOffice;
 console.log(movie.boxOffice);
