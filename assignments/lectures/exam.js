@@ -13,7 +13,7 @@
  * fizzBuzz(7) should return 7
  */
 function fizzBuzz(num) {
-    for (var i = 0; i < num; i++) {
+    for (let i = 0; i < num; i++) {
         if (num % 3 === 0 && num % 5 === 0) {
             return "FizzBuzz";
         } else if (num % 3 === 0) {
@@ -40,20 +40,20 @@ console.log(fizzBuzz(7));
  * isPalindrome("Level") should return true
  * isPalindrome("OpenAI") should return false
  */
-function isPalindrome(str) {
-    var result = "";
-    let polindrome;
-    for (var i = 0; i < str.length; i++) {
-        if (str[i] === polindrome) {
-            return true;
-        } else {
-            return false;
-        }
+function isPalindrome(word) {
+    let palindrome = "";
+    for (let i = word.length - 1; i >= 0; i--) {
+        palindrome += word[i];
     }
-    return result;
+    if (word.toLowerCase() === palindrome.toLowerCase()) {
+        return true;
+    } else {
+        return false;
+    }
 }
-console.log(isPalindrome("Level"));
-console.log(isPalindrome("OpenAI"));
+
+console.log(isPalindrome("level"));
+console.log(isPalindrome("openAI"));
 
 //  Assignment 3: Array Filter
 // * Write a function that takes an array of strings and a number as arguments.
@@ -65,10 +65,10 @@ console.log(isPalindrome("OpenAI"));
 // * should return ["apple", "dates"]
 // */
 function filterArray(arr, num) {
-    var filterArray = [];
+    let result = [];
     for (var i = 0; i < arr.length; i++) {
         if (arr[i].length <= num) {
-            filterArray.push(arr[i]);
+            result.push(arr[i]);
         }
     }
     return filterArray;
@@ -87,18 +87,15 @@ console.log(
 //  * stringsToObjects(["cat", "window", "prop"])
 //  * should return [{cat: 9}, {window: 36}, {prop: 16}]
 function stringsToObjects(arr) {
-    let result = [];
-    for (var i = 0; i < arr.length; i++) {
-        let object = {};
-        if ((arr[i].length = object)) {
-            result = result + object.repeat(2);
-            result.push(object);
-        }
+    let newArr = [];
+    for (let i = 0; i < arr.length; i++) {
+        let obj = {};
+        obj[arr[i]] = arr[i].length * arr[i].length;
+        newArr.push(obj);
     }
-    return result;
+    return newArr;
 }
 console.log(stringsToObjects(["cat", "window", "prop"]));
-
 // * Assignment 5: Key-Value Multiplication
 // * Write a function that takes an object as an argument. In this object, keys are strings and values are also strings.
 // * The function should return a new object where each key is a combination of the original key and value,
@@ -109,4 +106,39 @@ console.log(stringsToObjects(["cat", "window", "prop"]));
 // * should return {"applefruit": 25, "carvehicle": 21}
 // */
 
-function keyValueMultiplication(object) {}
+function keyValueMultiplication(obj) {
+    let result = {};
+    for (let word in obj) {
+        let newKey = word + obj[word];
+        let newValue = word.length * obj[word].length;
+        result[newKey] = newValue;
+    }
+    return result;
+}
+console.log(keyValueMultiplication({ apple: "fruit", car: "vehicle" }));
+
+/**
+ * Assignment 6: Array Operations
+ * Write a function that takes two arrays of equal length as arguments.
+ * The function should return an object with two properties - 'added' and 'multiplied'.
+ * The 'added' property should be an array that contains the result of adding each element at the same index
+ * in the two input arrays.
+ * The 'multiplied' property should be an array that contains the result of multiplying each element at the same index
+ * in the two input arrays.
+ *
+ * Example:
+ * arrayOperations([1, 2, 3], [4, 5, 6])
+ * should return {added: [5, 7, 9], multiplied: [4, 10, 18]}
+ */
+function arrayOperations(arr1, arr2) {
+    let result = {
+        added: [],
+        multiplied: []
+    };
+    for (let i = 0; i < arr1.length; i++) {
+        result.added.push(arr1[i] + arr2[i]);
+        result.multiplied.push(arr1[i] * arr2[i]);
+    }
+    return result;
+}
+console.log(arrayOperations([1, 2, 3], [4, 5, 6]));
