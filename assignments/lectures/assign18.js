@@ -22,7 +22,10 @@ function divisibilityFilter(arr) {
     }
     return result;
 }
+ loop-one
+console.log(divisibilityFilter([3, 5, 15, 18, 20, 30, 31]));
 console.log(divisibilityFilter([3, 5, 15, 18, 20, 30]));
+ main
 
 function singleDigitSum(arr) {
     let sum = 0;
