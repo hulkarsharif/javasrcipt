@@ -5,6 +5,7 @@ var name3 = "bob Johnson";
 //For name1
 var spaceIndex1 = name1.indexOf(" ");
 var firstNameInitial1 = name1[0];
+
 var lastNameInitial1 = name1[spaceIndex1 + 1];
 console.log((firstNameInitial1 + lastNameInitial1).toUpperCase());
 

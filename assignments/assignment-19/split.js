@@ -112,8 +112,8 @@ console.log(splitByMultipleCharacters("The quick brown fox"));
 
 function swapFirstAndLastName(fullName) {
     var parts = fullName.split(" ");
-    var temp = parts[0];
-    parts[0] = parts[1];
+    var temp = parts[1];
+    parts[1] = parts[0];
     parts[1] = temp;
     return parts.join(",");
 }
@@ -131,10 +131,10 @@ console.log(swapFirstAndLastName("John Doe"));
 //Example Output: "#OpenAIIIsAwesome"
 function createHashtag(str) {
     var words = str.split(" ");
-    for (var i = 0; i < words.length; i++) {
-        words[i] = words[i][0].toUpperCase() + words[i].slice(1);
-    }
 
+    for (var i = 0; i < words.length; i++) {
+        words[i] = words[i][0].toUpperCase + words[i].slice(1);
+    }
     return `#${words.join("")}`;
 }
 console.log(createHashtag("hello world"));
